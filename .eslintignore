@@ -1,0 +1,5 @@
+automated-testing/*
+*.config.js
+cypress/*
+vendor/*
+node_modules/*
