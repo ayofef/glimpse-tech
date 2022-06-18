@@ -21,7 +21,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx src --max-warnings=5",
     "lint:fix": "eslint --fix --ext .js,.jsx src",
-    "prepare": "husky install"
+    "prettier:check": "prettier './**/*.{js,ts,jsx,tsx,md,html,css,scss}' --check"
   },
   "eslintConfig": {
     "extends": [
