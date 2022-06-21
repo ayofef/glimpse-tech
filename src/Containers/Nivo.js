@@ -6,8 +6,8 @@ import { useFetchData } from '../hooks/useFetchData';
 
 /**
  *
- * Bar chart has a bug -  workaround barComponent
- * Does not animate on mount
+ * Bar chart has a bug -  workaround barComponent - works fine - we have control so customization is at it's peak
+ * Does not animate on mount -  workaround barComponent resolves this, since we have control
  *
  * Performance is great
  * Customization is great
