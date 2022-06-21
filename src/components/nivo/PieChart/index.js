@@ -3,8 +3,8 @@ import { ResponsivePie } from '@nivo/pie';
 import { StyledWrapper } from './styled';
 
 const PieChart = ({ todos }) => {
-  const completedTodos = useMemo(() => todos.filter((todo) => todo.completed), [todos]);
-  const notCompletedTodos = useMemo(() => todos.filter((todo) => !todo.completed), [todos]);
+  const completedTodos = useMemo(() => todos?.filter((todo) => todo.completed) ?? [], [todos]);
+  const notCompletedTodos = useMemo(() => todos?.filter((todo) => !todo.completed) ?? [], [todos]);
 
   //   const [chartData, setChartData] = useState([]);
   //   useEffect(() => {

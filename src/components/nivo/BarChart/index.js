@@ -1,6 +1,8 @@
+/* eslint-disable no-inline-styles/no-inline-styles */
+/* eslint-disable react/no-unstable-nested-components */
 import React, { useMemo } from 'react';
-import { ResponsiveBarCanvas } from '@nivo/bar';
-
+import { ResponsiveBar } from '@nivo/bar';
+import CustomBarComponent from './BarComponent';
 import { StyledWrapper } from './styled';
 
 const attachCompletetdTasksToUsers = (todos) => {
@@ -29,12 +31,28 @@ const BarChart = ({ todos }) => {
 
   return (
     <StyledWrapper>
-      <ResponsiveBarCanvas
+      <ResponsiveBar
         data={completedTasksByUsers}
         keys={['value']}
         indexBy="id"
         margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
         padding={0.3}
+        barComponent={CustomBarComponent}
+        tooltip={({ id, value, color }) => (
+          <div
+            style={{
+              padding: 12,
+              color,
+              background: '#222222',
+            }}
+          >
+            <span>Look, custom :)</span>
+            <br />
+            <strong>
+              {id}: {value}
+            </strong>
+          </div>
+        )}
         // valueScale={{ type: 'linear' }}
         // indexScale={{ type: 'band', round: true }}
         colors={{ scheme: 'nivo' }}

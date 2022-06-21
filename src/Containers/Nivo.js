@@ -6,7 +6,7 @@ import { useFetchData } from '../hooks/useFetchData';
 
 /**
  *
- * Bar chart has a bug
+ * Bar chart has a bug -  workaround barComponent
  * Does not animate on mount
  *
  * Performance is great
@@ -27,7 +27,7 @@ const Nivo = () => {
 
       {loading && <p>Loading..</p>}
       {!loading && data && <BarChart todos={data} />}
-      {!loading && data && <PieChart todos={data} />}
+      <PieChart todos={data} />
     </div>
   );
 };
