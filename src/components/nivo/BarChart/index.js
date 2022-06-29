@@ -4,30 +4,13 @@ import React, { useMemo } from 'react';
 import { ResponsiveBar } from '@nivo/bar';
 import CustomBarComponent from './BarComponent';
 import { StyledWrapper } from './styled';
+import { attachCompletetdTasksToUsers } from '../constant';
 
-const attachCompletetdTasksToUsers = (todos) => {
-  const parsedData = todos.reduce((acc, curr) => {
-    const currentUserId = curr.userId;
-    const { completed } = curr;
-
-    const alreadyExists = Boolean(acc.find((user) => user.id === currentUserId));
-    if (alreadyExists) {
-      const currentValue = acc.find((el) => el.id === currentUserId)?.value || 0;
-      const filteredAcc = acc.slice().filter((el) => el.id !== currentUserId);
-      return [...filteredAcc, { id: currentUserId, value: completed ? currentValue + 1 : currentValue }];
-    }
-
-    return [...acc, { id: curr.userId, value: completed ? 1 : 0 }];
-  }, []);
-
-  return parsedData;
-};
 const BarChart = ({ todos }) => {
   const completedTasksByUsers = useMemo(() => {
     const x = attachCompletetdTasksToUsers(todos);
     return x;
   }, [todos]);
-  console.log('🚀 ~ file: index.js ~ line 32 ~ completedTasksByUsers ~ completedTasksByUsers', completedTasksByUsers);
 
   return (
     <StyledWrapper>

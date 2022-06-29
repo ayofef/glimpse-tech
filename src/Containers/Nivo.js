@@ -1,6 +1,7 @@
 import React from 'react';
 import PieChart from '../components/nivo/PieChart';
 import BarChart from '../components/nivo/BarChart';
+import LineChart from '../components/nivo/LineChart';
 
 import { useFetchData } from '../hooks/useFetchData';
 
@@ -26,6 +27,8 @@ const Nivo = () => {
       </a>
 
       {loading && <p>Loading..</p>}
+      {!loading && data && <LineChart todos={data} />}
+
       {!loading && data && <BarChart todos={data} />}
       <PieChart todos={data} />
     </div>
