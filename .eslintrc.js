@@ -61,7 +61,7 @@ module.exports = {
     'react/destructuring-assignment': 0,
     'react/react-in-jsx-scope': 0,
     'no-unused-vars': [
-      2,
+      1,
       {
         argsIgnorePattern: '^_',
         ignoreRestSiblings: true,

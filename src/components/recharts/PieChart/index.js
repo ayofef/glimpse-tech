@@ -4,12 +4,7 @@ import { StyledCustomToolTip } from './styled';
 
 const COLORS = ['#638475', '#90E39A', '#DDF093', '#F6D0B1', '#DBD3AD', '#E0607E', '#D36060', '#C2714F', '#F6C5AF'];
 
-const CustomTooltip = ({ active, payload, ...rest }) => {
-  console.log('🚀 ~ file: index.js ~ line 13 ~ CustomTooltip ~ { active, payload, ...rest }', {
-    active,
-    payload,
-    ...rest,
-  });
+const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     const dataObj = payload[0];
     return (
@@ -43,7 +38,7 @@ const PieChartComponent = ({ todos }) => {
     // eslint-disable-next-line no-inline-styles/no-inline-styles
     <div style={{ width: '100%', height: 300 }}>
       <ResponsiveContainer>
-        <PieChart>
+        <PieChart width={730} height={250}>
           <Pie
             dataKey="value"
             data={chartData}
@@ -52,7 +47,8 @@ const PieChartComponent = ({ todos }) => {
             cx="50%"
             cy="50%"
             paddingAngle={1}
-            grid
+            // grid
+            animationDuration={3000}
           >
             {chartData.map((entry, index) => (
               // eslint-disable-next-line react/no-array-index-key
