@@ -7,7 +7,8 @@ const Visx = () => {
   const { loading, data } = useFetchData();
 
   return (
-    <div>
+    // eslint-disable-next-line no-inline-styles/no-inline-styles
+    <div style={{ padding: '0 12px', height: '400px' }}>
       <a href="https://airbnb.io/visx/bars" target="_blank" rel="noreferrer noopener">
         <h1>Visx</h1>
       </a>
