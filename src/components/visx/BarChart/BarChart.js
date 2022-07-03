@@ -56,7 +56,7 @@ const BarChart = ({ todos, width, height }) => {
 
   return (
     <>
-      {/* For responsive */}
+      {/* For responsive we use ParentSize */}
       <svg ref={containerRef} width={width} height={height}>
         {/* Further optimisation will be to memorize GradientTealBlue, and Group  */}
         <GradientTealBlue id="teal" />

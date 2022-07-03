@@ -20,6 +20,7 @@
     "@visx/responsive": "^2.10.0",
     "@visx/scale": "^2.2.2",
     "@visx/shape": "^2.10.0",
+    "@visx/text": "^2.10.0",
     "@visx/tooltip": "^2.10.0",
     "apexcharts": "^3.35.3",
     "axios": "^0.27.2",
