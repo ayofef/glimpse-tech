@@ -1,6 +1,7 @@
 import React from 'react';
 import BarChart from '../components/visx/BarChart';
 import PieChart from '../components/visx/PieChart';
+import LineChart from '../components/visx/LineChart';
 
 import { useFetchData } from '../hooks/useFetchData';
 
@@ -14,7 +15,7 @@ const Visx = () => {
         <h1>Visx</h1>
       </a>
       {loading && <p>Loading..</p>}
-      {/* {!loading && data && <LineChart todos={data} />}*/}
+      {!loading && data && <LineChart todos={data} />}
       {!loading && data && <PieChart todos={data} />}
 
       {!loading && data && <BarChart todos={data} />}
