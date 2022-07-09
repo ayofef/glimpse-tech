@@ -12,6 +12,7 @@
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
     "@visx/axis": "^2.11.1",
+    "@visx/brush": "^2.12.1",
     "@visx/curve": "^2.1.0",
     "@visx/event": "^2.6.0",
     "@visx/gradient": "^2.10.0",
@@ -37,7 +38,8 @@
     "react-spring": "^9.4.5",
     "recharts": "^2.1.12",
     "styled-components": "^5.3.3",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "zustand": "^4.0.0-rc.1"
   },
   "scripts": {
     "start": "react-scripts start",

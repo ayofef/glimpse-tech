@@ -2,7 +2,7 @@ import ParentSize from '@visx/responsive/lib/components/ParentSize';
 import PieChart from './PieChart';
 
 const ResponsivePieChart = ({ todos }) => (
-  <ParentSize parentSizeStyles={{ height: '400px' }}>
+  <ParentSize parentSizeStyles={{ height: '400px', marginTop: '200px' }}>
     {({ width, height }) => <PieChart width={width} height={height} todos={todos} />}
   </ParentSize>
 );

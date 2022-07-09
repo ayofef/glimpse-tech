@@ -5,8 +5,8 @@ import { useSpring, animated, config } from 'react-spring';
 
 const LinePaths = ({ data, x, stroke, y, xMax }) => {
   const [length, setLength] = useState(null);
-  console.log('🚀 ~ file: LinePath.js ~ line 7 ~ LinePaths ~ length', length);
-  const { strokeDasharray, strokeDashoffset } = useSpring({
+  //   console.log('🚀 ~ file: LinePath.js ~ line 7 ~ LinePaths ~ length', length);
+  const { strokeDasharray } = useSpring({
     // we do *not* animating this property, we just set it up
     from: {
       strokeDasharray: length,
@@ -16,11 +16,11 @@ const LinePaths = ({ data, x, stroke, y, xMax }) => {
     },
     config: config.molasses,
   });
-  console.log(
-    '🚀 ~ file: LinePath.js ~ line 19 ~ LinePaths ~ strokeDasharray, strokeDashoffset',
-    strokeDasharray,
-    strokeDashoffset
-  );
+  //   console.log(
+  //     '🚀 ~ file: LinePath.js ~ line 19 ~ LinePaths ~ strokeDasharray, strokeDashoffset',
+  //     strokeDasharray,
+  //     strokeDashoffset
+  //   );
   const AnimatedPath = animated(LinePath);
   return (
     <AnimatedPath

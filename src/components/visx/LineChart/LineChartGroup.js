@@ -5,13 +5,14 @@ import LinePath from './LinePath';
 // import { LinePath } from '@visx/shape';
 
 export const AXIS_COLOR = 'blue';
-export const AXIS_BOTTOM_TICK_LABEL_PROPS = {
+export const AXIS_BOTTOM_TICK_LABEL_PROPS = (xTick) => ({
   textAnchor: 'middle',
   fontFamily: 'Roboto',
   fontSize: 15,
   fontWeight: '900',
   fill: AXIS_COLOR,
-};
+  ...(xTick === 1 && { dx: '0.2em' }),
+});
 export const AXIS_LEFT_TICK_LABEL_PROPS = {
   dx: '-0.25em',
   dy: '0.25em',
@@ -61,7 +62,7 @@ const LineChart = ({
           numTicks={width > 520 ? 10 : 5}
           stroke={AXIS_COLOR}
           tickStroke={AXIS_COLOR}
-          tickLabelProps={() => AXIS_BOTTOM_TICK_LABEL_PROPS}
+          tickLabelProps={(props) => AXIS_BOTTOM_TICK_LABEL_PROPS(props)}
         />
       )}
       {!hideLeftAxis && (
