@@ -12,7 +12,7 @@ const margin = { top: 0, right: 40, bottom: 90, left: 0 };
 const getXdata = (d) => d.x;
 const getYdata = (d) => d.y;
 
-const SecondaryChart = ({ data, width, height }) => {
+const SecondaryChart = ({ data, width, height, fill, stroke }) => {
   console.log('🚀 ~ file: SecondaryChart.js ~ line 17 ~ SecondaryChart ~ width', width);
   const setFilteredData = useLineChartStore(setFilteredDataBinder);
   // bounds
@@ -72,7 +72,8 @@ const SecondaryChart = ({ data, width, height }) => {
           xMax={xMax}
           xScale={xScale}
           yScale={yScale}
-          stroke="green"
+          stroke={stroke}
+          fill={fill}
           // xTickFormat={(d) => {
           //   return numeral(d).format(d <= 100 ? '$0.00' : '$0,0');
           // }}

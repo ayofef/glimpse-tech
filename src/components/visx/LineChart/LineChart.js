@@ -6,11 +6,11 @@ import { scaleLinear } from '@visx/scale';
 import { localPoint } from '@visx/event';
 import { Line, Bar } from '@visx/shape';
 import { max, min, extent, bisector } from 'd3-array';
+import { LinearGradient, GradientOrangeRed } from '@visx/gradient';
 import LineChartGroup from './LineChartGroup';
 import { attachCompletetdTasksToUsers } from '../../nivo/constant';
 import { useLineChartStore, setFilteredDataBinder, filteredDataBinder } from './useLineChartStore';
 import SecondaryChart from './SecondaryChart';
-
 // accessors
 const getXdata = (d) => d.x;
 const getYdata = (d) => d.y;
@@ -37,12 +37,14 @@ const LineChart = ({ width, height, todos }) => {
   // bounds
   const xMax = Math.max(width - margin.left - margin.right, 0);
   const yMax = Math.max(height - margin.top - margin.bottom, 0);
+  console.log(extent(filteredData, getXdata));
 
   // scales
   const xScale = useMemo(() => {
     return scaleLinear({
       range: [0, xMax],
       domain: extent(filteredData, getXdata),
+      round: true,
       clamp: true,
       nice: true,
     });
@@ -87,8 +89,9 @@ const LineChart = ({ width, height, todos }) => {
   return (
     <>
       {/* // eslint-disable-next-line no-inline-styles/no-inline-styles */}
-      <div style={{ position: 'relative' }}>
+      <div style={{ position: 'relative', backgroundColor: '#fff' }}>
         <svg width={width} height={height}>
+          <GradientOrangeRed id="area-gradient" />
           <LineChartGroup
             data={filteredData}
             width={width}
@@ -97,10 +100,12 @@ const LineChart = ({ width, height, todos }) => {
             xMax={xMax}
             xScale={xScale}
             yScale={yScale}
-            stroke="green"
             xTickFormat={(d) => {
-              return numeral(d).format(d <= 100 ? '$0.00' : '$0,0');
+              // return numeral(d).format(d <= 100 ? '$0.00' : '$0,0');
+              return numeral(d).format('0');
             }}
+            fill="url(#area-gradient)"
+            stroke="url(#area-gradient)"
           />
           {/* a transparent ele that track the pointer event, allow us to display tooltip */}
           <Bar
@@ -186,7 +191,7 @@ const LineChart = ({ width, height, todos }) => {
         )}
       </div>
       <div style={{ marginLeft: '60px' }}>
-        <SecondaryChart width={width - 60} height={Math.floor(height * 0.5)} data={data} />
+        <SecondaryChart width={width - 60} height={Math.floor(height * 0.5)} data={data} stroke="url(#area-gradient)" />
       </div>
     </>
   );

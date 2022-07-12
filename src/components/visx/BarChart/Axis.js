@@ -11,7 +11,7 @@ const Axis = memo(({ type, tickLabelDy, scale, tickLabelTextAnchor, top }) => {
   const Component = AXIS_TYPES[type] || AXIS_TYPES.default;
   const mergedTickLabelProp = useCallback(
     () => ({
-      fill: 'url(#teal)',
+      fill: '#6078EA',
       fontSize: 16,
       textAnchor: 'middle',
       ...(tickLabelDy && { dy: tickLabelDy }),
@@ -28,7 +28,7 @@ const Axis = memo(({ type, tickLabelDy, scale, tickLabelTextAnchor, top }) => {
       // numTicks={5}
       // rangePadding={-38}
       // tickFormat={formatDate}
-      stroke="red"
+      stroke="#6078EA"
       // tickStroke={"purple3"}
       tickLabelProps={mergedTickLabelProp}
       {...(top && { top })}

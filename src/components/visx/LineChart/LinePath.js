@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { LinePath } from '@visx/shape';
+import { LinePath, AreaClosed } from '@visx/shape';
 import { curveCardinal } from '@visx/curve';
 import { useSpring, animated, config } from 'react-spring';
+import { LinearGradient } from '@visx/gradient';
 
-const LinePaths = ({ data, x, stroke, y, xMax }) => {
+const LinePaths = ({ data, x, stroke, y, xMax, yScale, fill }) => {
   const [length, setLength] = useState(null);
   //   console.log('🚀 ~ file: LinePath.js ~ line 7 ~ LinePaths ~ length', length);
   const { strokeDasharray } = useSpring({
@@ -27,6 +28,7 @@ const LinePaths = ({ data, x, stroke, y, xMax }) => {
       data={data}
       x={x}
       y={y}
+      yScale={yScale}
       strokeWidth={2}
       stroke={stroke}
       //   strokeDashoffset={strokeDashoffset}

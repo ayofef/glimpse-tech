@@ -1,10 +1,11 @@
 import React from 'react';
 import { Group } from '@visx/group';
 import { AxisLeft, AxisBottom } from '@visx/axis';
+import numeral from 'numeral';
 import LinePath from './LinePath';
 // import { LinePath } from '@visx/shape';
 
-export const AXIS_COLOR = 'blue';
+export const AXIS_COLOR = '#42047e';
 export const AXIS_BOTTOM_TICK_LABEL_PROPS = (xTick) => ({
   textAnchor: 'middle',
   fontFamily: 'Roboto',
@@ -38,6 +39,7 @@ const LineChart = ({
   xTickFormat,
   children,
   xMax,
+  fill,
 }) => {
   if (!data) return null;
   // accessors
@@ -54,6 +56,8 @@ const LineChart = ({
         strokeWidth={2}
         stroke={stroke}
         xMax={xMax}
+        yScale={yScale}
+        fill={fill}
       />
       {!hideBottomAxis && (
         <AxisBottom
@@ -63,6 +67,12 @@ const LineChart = ({
           stroke={AXIS_COLOR}
           tickStroke={AXIS_COLOR}
           tickLabelProps={(props) => AXIS_BOTTOM_TICK_LABEL_PROPS(props)}
+          hideTicks
+          tickFormat={(d) => {
+            console.log(d);
+            // return xTickFormat ? xTickFormat(d) : d;
+            return d.toString().includes('.5') ? null : numeral(d).format('0');
+          }}
         />
       )}
       {!hideLeftAxis && (
